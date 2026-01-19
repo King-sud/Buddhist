@@ -1,0 +1,646 @@
+<!DOCTYPE html> 
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>sacredhimalayanblessings.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #f5f3ea;
+      --card-bg: #ffffff;
+      --primary: #8b4513;   /* deep brown/red */
+      --primary-soft: #f7e0b5;
+      --accent: #d4af37;    /* gold */
+      --accent-soft: #fff7d6;
+      --text-main: #222222;
+      --text-muted: #6b7280;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      background: #3b1e10;
+      color: #fefce8;
+      padding: 14px 18px;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      color: #fef3c7;
+    }
+    nav a:hover {
+      color: #facc15;
+    }
+
+    .lang-switch button {
+      border: 1px solid #f4d58a;
+      background: transparent;
+      color: #fef3c7;
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      margin-left: 4px;
+    }
+    .lang-switch button.active {
+      background: #f4d58a;
+      color: #3b1e10;
+      font-weight: 600;
+    }
+
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 40px 16px 60px;
+    }
+
+    section {
+      background: var(--card-bg);
+      padding: 32px 26px;
+      border-radius: 14px;
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.12);
+      margin-bottom: 36px;
+      scroll-margin-top: 80px;
+      animation: fadeInUp 0.6s ease both;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1, h2 {
+      color: var(--primary);
+      margin-top: 0;
+      letter-spacing: 0.03em;
+    }
+    h1 {
+      font-size: 1.7rem;
+      margin-bottom: 0.4rem;
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #92400e;
+      background: var(--primary-soft);
+      padding: 3px 9px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .intro-layout {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 800px) {
+      .intro-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-side-card {
+      background: var(--accent-soft);
+      border-radius: 14px;
+      padding: 18px 16px;
+      border: 1px solid var(--accent);
+      font-size: 0.9rem;
+    }
+
+    .muted {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    @media (max-width: 900px) {
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .service-card {
+      background: #fffdf7;
+      border-radius: 12px;
+      padding: 18px 16px;
+      border: 1px solid #e5e7eb;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom right,
+        rgba(212, 175, 55, 0.12),
+        transparent
+      );
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .service-card h3 {
+      margin: 0 0 0.3rem;
+      font-size: 1.05rem;
+    }
+
+    .service-card p {
+      font-size: 0.93rem;
+      margin: 0.2rem 0 0.3rem;
+    }
+
+    .service-card ul {
+      padding-left: 1.2rem;
+      margin: 0.4rem 0 0;
+      font-size: 0.9rem;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 22px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 800px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .contact-card {
+      background: #3b1e10;
+      color: #fefce8;
+      border-radius: 14px;
+      padding: 18px 18px 20px;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.5);
+      font-size: 0.95rem;
+    }
+
+    .contact-card p {
+      margin: 0.25rem 0;
+    }
+
+    .contact-card a {
+      color: #facc15;
+    }
+
+    .btn-row {
+      margin-top: 0.7rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 16px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.85rem;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.15s ease, color 0.15s ease,
+        border-color 0.15s ease, transform 0.05s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fefce8;
+      border-color: var(--primary);
+    }
+    .btn-primary:hover {
+      background: #6b3010;
+      border-color: #6b3010;
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #fefce8;
+      border-color: #fbbf24;
+    }
+    .btn-outline:hover {
+      background: rgba(36, 80, 191, 0.15);
+      transform: translateY(-1px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px 1rem 28px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Language handling */
+    .lang-en {
+      display: block;
+    }
+    .lang-de {
+      display: none;
+    }
+
+    html[data-lang="de"] .lang-en {
+      display: none;
+    }
+    html[data-lang="de"] .lang-de {
+      display: block;
+    }
+  </style>
+</head>
+
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sacred Himalayan Blessings</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <img src="logo.png" alt="Buddhist services logo" class="header-logo">
+
+    <div class="nav-inner">
+      <div class="brand">Sacred Himalayan Blessings</div>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <div class="lang-switch">
+          <button id="btn-en" class="active">EN</button>
+          <button id="btn-de">DE</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+
+  <main>
+    <!-- HOME -->
+    <section id="home">
+      <div class="intro-layout">
+        <div>
+          <div class="lang-en">
+            <div class="eyebrow">Traditional Bhutanese Buddhist ceremonies</div>
+            <h1>Blessings for home, family and life transitions</h1>
+            <p>
+              My name is <strong>Kinga Dorji</strong>. I am originally from Bhutan,
+              a small Himalayan Buddhist country between China and India, and I
+              now live in Basel with my family.
+            </p>
+            <p>
+              I spent more than <strong>14 years in monastery training</strong>,
+              studying Buddhist philosophy, rituals, meditation, ceremonial
+              instruments and later Sanskrit in India.
+            </p>
+            <p>
+              Today I offer traditional blessing ceremonies for people who wish
+              to invite peace, protection, healing and harmony into their lives
+              and spaces.
+            </p>
+          </div>
+
+          <div class="lang-de">
+            <div class="eyebrow">Traditionelle buddhistische Rituale aus Bhutan</div>
+            <h1>Segnungen für Zuhause, Familie und Lebensübergänge</h1>
+            <p>
+              Mein Name ist <strong>Kinga Dorji</strong>. Ich komme aus Bhutan,
+              einem kleinen Himalaya-Land zwischen China und Indien, und lebe
+              heute mit meiner Familie in Basel.
+            </p>
+            <p>
+              Ich habe über <strong>14 Jahre im Kloster</strong> verbracht und
+              dort buddhistische Philosophie, Rituale, Meditation,
+              Zeremonien-Instrumente und später Sanskrit in Indien studiert.
+            </p>
+            <p>
+              Heute biete ich traditionelle Segnungszeremonien an für Menschen,
+              die Frieden, Schutz, Heilung und Harmonie in ihr Leben und in
+              ihre Räume einladen möchten.
+            </p>
+          </div>
+        </div>
+
+        <aside class="hero-side-card">
+          <div class="lang-en">
+            <h2>Short background</h2>
+            <p class="muted" style="margin-bottom: 0.4rem;">
+              Highlights of my training:
+            </p>
+            <ul style="margin: 0.1rem 0 0; padding-left: 1.1rem;">
+              <li>Monastic education from age 10 to 24</li>
+              <li>Studies in Buddhist texts and rituals</li>
+              <li>Mask dancer (Cham) and ritual performer</li>
+              <li>Five years of Buddhist philosophy at an institute</li>
+              <li>Three years in India studying Sanskrit</li>
+            </ul>
+          </div>
+          <div class="lang-de">
+            <h2>Mein Hintergrund</h2>
+            <p class="muted" style="margin-bottom: 0.4rem;">
+              Wichtige Stationen:
+            </p>
+            <ul style="margin: 0.1rem 0 0; padding-left: 1.1rem;">
+              <li>Klosterausbildung von 10 bis 24 Jahren</li>
+              <li>Studium buddhistischer Texte und Rituale</li>
+              <li>Maskentänzer (Cham) und Ritualausführer</li>
+              <li>Fünf Jahre buddhistische Philosophie am Institut</li>
+              <li>Drei Jahre Sanskrit-Studium in Indien</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="lang-en">
+        <div class="eyebrow">Ceremonies</div>
+        <h1>Services</h1>
+        <p class="muted">
+          These blessings follow traditional Bhutanese and Tibetan Buddhist
+          practice. Ceremonies can be adapted to your personal situation,
+          wishes and culture.
+        </p>
+      </div>
+      <div class="lang-de">
+        <div class="eyebrow">Zeremonien</div>
+        <h1>Leistungen</h1>
+        <p class="muted">
+          Diese Segnungen basieren auf der traditionellen buddhistischen Praxis
+          aus Bhutan und Tibet. Die Zeremonien können an Ihre persönliche
+          Situation, Wünsche und Kultur angepasst werden.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Cleansing Ceremony -->
+        <article class="service-card">
+          <div class="service-icon">🌙</div>
+          <div class="lang-en">
+            <h3>Cleansing Ceremony</h3>
+            <p>
+              A general blessing to clear obstacles and invite good fortune,
+              peace and protection.
+            </p>
+            <ul>
+              <li>Moving into a new home</li>
+              <li>Welcoming a baby / becoming parents</li>
+              <li>Beginning a new chapter in life</li>
+              <li>Releasing bad luck and heavy energy</li>
+            </ul>
+          </div>
+          <div class="lang-de">
+            <h3>Reinigungszeremonie</h3>
+            <p>
+              Eine allgemeine Segnung, um Hindernisse zu lösen und Glück,
+              Frieden und Schutz einzuladen.
+            </p>
+            <ul>
+              <li>Einzug in ein neues Zuhause</li>
+              <li>Geburt eines Kindes / Eltern werden</li>
+              <li>Neuer Lebensabschnitt oder Neubeginn</li>
+              <li>Schwere Energie und Pech loslassen</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Butter Lamp -->
+        <article class="service-card">
+          <div class="service-icon">🕯️</div>
+          <div class="lang-en">
+            <h3>Butter Lamp Prayer (Moenlam)</h3>
+            <p>
+              A light-offering ceremony for healing, guidance and compassion,
+              especially in difficult times.
+            </p>
+            <ul>
+              <li>For someone who is sick or suffering</li>
+              <li>For loved ones who have passed away</li>
+              <li>For emotional or spiritual darkness</li>
+              <li>To offer light on the path to the next life</li>
+            </ul>
+          </div>
+          <div class="lang-de">
+            <h3>Butterlampen-Gebet (Moenlam)</h3>
+            <p>
+              Eine Lichtopfer-Zeremonie für Heilung, Führung und Mitgefühl,
+              besonders in schwierigen Zeiten.
+            </p>
+            <ul>
+              <li>Für Menschen, die krank sind oder leiden</li>
+              <li>Für Verstorbene und Trauernde</li>
+              <li>Für emotionale oder spirituelle Dunkelheit</li>
+              <li>Um Licht auf dem Weg ins nächste Leben zu schenken</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Consecration -->
+        <article class="service-card">
+          <div class="service-icon">🏠</div>
+          <div class="lang-en">
+            <h3>Consecration & Space Blessing</h3>
+            <p>
+              A ritual to purify spaces and invite harmony, success and
+              protection.
+            </p>
+            <ul>
+              <li>New house, apartment or studio</li>
+              <li>Opening a shop, practice or office</li>
+              <li>Meditation / yoga room or healing space</li>
+              <li>Personal altar or sacred space</li>
+            </ul>
+          </div>
+          <div class="lang-de">
+            <h3>Weihe & Raumsegnung</h3>
+            <p>
+              Ein Ritual zur Reinigung von Räumen und um Harmonie, Erfolg und
+              Schutz einzuladen.
+            </p>
+            <ul>
+              <li>Neues Haus, Wohnung oder Atelier</li>
+              <li>Eröffnung von Laden, Praxis oder Büro</li>
+              <li>Meditations-, Yoga- oder Heilraum</li>
+              <li>Persönlicher Altar oder heiliger Raum</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="contact-layout">
+        <div>
+          <div class="lang-en">
+            <div class="eyebrow">Get in touch</div>
+            <h1>Contact</h1>
+            <p>
+              If you are interested in a ceremony or would like to ask
+              questions, you are warmly welcome to contact me.
+            </p>
+            <p class="muted">
+              Ceremonies can take place in your home or space in Basel and
+              surrounding areas. I speak both <strong>German and English</strong>.
+            </p>
+          </div>
+          <div class="lang-de">
+            <div class="eyebrow">Kontakt aufnehmen</div>
+            <h1>Kontakt</h1>
+            <p>
+              Wenn Sie an einer Zeremonie interessiert sind oder Fragen haben,
+              können Sie mich gerne kontaktieren.
+            </p>
+            <p class="muted">
+              Zeremonien können bei Ihnen zu Hause oder in Ihren Räumen in Basel
+              und Umgebung stattfinden. Ich spreche <strong>Deutsch und Englisch</strong>.
+            </p>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="lang-en">
+            <h2 style="margin-top: 0;">Contact details</h2>
+            <p><strong>Name:</strong> Kinga Dorji</p>
+            <p><strong>Location:</strong> Basel, Switzerland</p>
+            <p><strong>Phone:</strong> <a href="tel:+4179602057">079 602 05 7</a></p>
+          </div>
+          <div class="lang-de">
+            <h2 style="margin-top: 0;">Kontaktdaten</h2>
+            <p><strong>Name:</strong> Kinga Dorji</p>
+            <p><strong>Ort:</strong> Basel, Schweiz</p>
+            <p><strong>Telefon:</strong> <a href="tel:+4179602057">079 602 05 7</a></p>
+          </div>
+
+          <div class="btn-row">
+            <a
+              class="btn btn-primary"
+              href="https://wa.me/4179602057"
+              target="_blank"
+              rel="noopener"
+            >
+              WhatsApp
+            </a>
+            <a class="btn btn-outline" href="tel:+4179602057">
+              Call
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Bhutanese Buddhist Blessings · Basel
+  </footer>
+
+  <script>
+    // Language toggle
+    const btnEn = document.getElementById("btn-en");
+    const btnDe = document.getElementById("btn-de");
+
+    btnEn.addEventListener("click", () => {
+      document.documentElement.setAttribute("data-lang", "en");
+      btnEn.classList.add("active");
+      btnDe.classList.remove("active");
+    });
+
+    btnDe.addEventListener("click", () => {
+      document.documentElement.setAttribute("data-lang", "de");
+      btnDe.classList.add("active");
+      btnEn.classList.remove("active");
+    });
+
+    // Footer year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
